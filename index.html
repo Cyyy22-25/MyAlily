@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Matcha Love 💚</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #d0f0c0, #b0de90);
+      color: #2d4739;
+      overflow-x: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 80px 20px 50px;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+
+    .photo {
+      border-radius: 20px;
+      margin-top: 30px;
+      width: 280px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .floating {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .float {
+      position: absolute;
+      animation: float 10s infinite ease-in;
+    }
+
+    .float img {
+      width: 45px;
+      height: auto;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .love-note {
+      margin-top: 40px;
+    }
+
+    .button {
+      padding: 14px 28px;
+      background-color: #7fbf5f;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #6aa24c;
+      transform: scale(1.05);
+    }
+
+    .keroppi {
+      width: 120px;
+      margin-top: 40px;
+      animation: floatKeroppi 6s infinite ease-in-out;
+    }
+
+    @keyframes floatKeroppi {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    #love-letter {
+      background: #6aa24c(255, 255, 255, 0.7);
+      margin-top: 60px;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating Keroppi, hearts, and matcha cups -->
+<div class="floating" id="float-container"></div>
+
+<div class="container">
+  <h1>To My Palagi 🍵💚</h1>
+  <p>
+    From the bottom of my heart thank you,
+    Thank you for the love and care you give me its
+    all i could ever ask for and more.
+    I appreciate you trying hardest even when its hard.
+    I love you My Palagi
+  </p>
+
+  <img src="New folder (2)/bebegirl.jpg" alt="You and me" class="photo">
+
+  <div class="love-note">
+    <a href="#love-letter" class="button">Read My Love Letter 💌</a>
+  </div>
+
+  <img src="New folder (2)/kerropi.png" alt="Keroppi" class="keroppi">
+</div>
+
+<div id="love-letter" class="container">
+  <h1>💌 Love Letter</h1>
+  <p>
+    My Baby Girl,  
+    <br><br>
+    Happy 20th Monthsary Bal Sorry sa mga pambwibwisit, pang iinis ko sayo nung nakaraan.  Wag ka mag sasawa sa ugali ko Super love na love kita I love you to the moon and back. Never mag sasawa sayo bal kahit anong sitwasyon pa ang dumating sa atin dalawa. Lagi mo tatandaan Mahal na Mahal kita. Never mapapagod ihatid sundo ka bal hanggang sa maging 4 wheels ang sasakyan natin dalawa I Love You so much
+    <br><br>
+    Always yours. 💚 🐧
+  </p>
+</div>
+
+<script>
+  const container = document.getElementById('float-container');
+  const emojis = ['💚', '🍵'];
+
+
+  for (let i = 0; i < 40; i++) {
+    const item = document.createElement('div');
+    item.className = 'float';
+
+    const chance = Math.random();
+    if (chance < 0.1) {
+      const img = document.createElement('img');
+      img.src = keroppiImg;
+      item.appendChild(img);
+    } else {
+      item.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+      item.style.fontSize = (Math.random() * 20 + 24) + 'px';
+    }
+
+    item.style.left = Math.random() * 100 + 'vw';
+    item.style.animationDelay = (Math.random() * 8) + 's';
+    container.appendChild(item);
+  }
+</script>
+
+</body>
+</html>
